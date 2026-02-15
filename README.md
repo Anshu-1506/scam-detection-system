@@ -54,7 +54,7 @@ scam-detection-system/
 
 1. **Clone the repository**
 \`\`\`bash
-git clone https://github.com/YOUR_USERNAME/scam-detection-system.git
+git clone https://github.com/Anshu-1506/scam-detection-system.git
 cd scam-detection-system
 \`\`\`
 
@@ -131,5 +131,5 @@ This project is licensed under the MIT License.
 
 ## 📞 Contact
 
-- Project Link: [https://github.com/YOUR_USERNAME/scam-detection-system](https://github.com/YOUR_USERNAME/scam-detection-system)
+- Project Link: [https://github.com/Anshu-1506/scam-detection-system](https://github.com/Anshu-1506/scam-detection-system)
 "@ | Out-File -FilePath README.md -Encoding utf8
