@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Share Story - Scam Awareness</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>💬 Share Your Experience</h1>
+        
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="learn.html">Learn</a>
+            <a href="story.html">Share Story</a>
+        </nav>
+
+        <div class="story-form">
+            <h2>Share Anonymously</h2>
+            <p>Your identity will remain private. Help others learn from your experience.</p>
+            
+            <textarea id="story" placeholder="Describe what happened... How did the scam start? What did you learn?"></textarea>
+            
+            <input type="text" id="tip" placeholder="Your tip for others (e.g., 'Never share OTP')">
+            
+            <button onclick="saveStory()">Share Story</button>
+            
+            <p id="success-message" style="color: green; display: none;">Thank you for sharing! Your story helps others stay safe.</p>
+        </div>
+
+        <div class="stories-list">
+            <h2>Stories from Community</h2>
+            
+            <div class="story-item">
+                <p><strong>⚠️ Experience:</strong> I got a call saying my son was kidnapped. They demanded money. I panicked but called my son first - he was fine. It was a scam.</p>
+                <p><strong>💡 Tip:</strong> Always verify before sending money, even if caller sounds urgent</p>
+                <small>Shared anonymously • 2 days ago</small>
+            </div>
+
+            <div class="story-item">
+                <p><strong>⚠️ Experience:</strong> Clicked a link for "free ₹5000" from a friend's hacked WhatsApp. It asked for my UPI PIN. I realized and stopped.</p>
+                <p><strong>💡 Tip:</strong> Never enter UPI PIN on unknown websites</p>
+                <small>Shared anonymously • 5 days ago</small>
+            </div>
+
+            <div class="story-item">
+                <p><strong>⚠️ Experience:</strong> Someone posing as bank employee asked for OTP to "unblock" account. I shared and lost ₹50,000.</p>
+                <p><strong>💡 Tip:</strong> Bank never asks for OTP. Hang up immediately.</p>
+                <small>Shared anonymously • 1 week ago</small>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function saveStory() {
+            const story = document.getElementById('story').value;
+            const tip = document.getElementById('tip').value;
+            
+            if (story && tip) {
+                document.getElementById('success-message').style.display = 'block';
+                document.getElementById('story').value = '';
+                document.getElementById('tip').value = '';
+                
+                // Hide message after 3 seconds
+                setTimeout(() => {
+                    document.getElementById('success-message').style.display = 'none';
+                }, 3000);
+            } else {
+                alert('Please fill both fields');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+ENV/
+myenv/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Model files (if too large)
+# *.joblib
+# Uncomment above if files >100MB
+
+# Logs
+*.log
+
+# Local testing
+bot/scam_detector_model.joblib.bak

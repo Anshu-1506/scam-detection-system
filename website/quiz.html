@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz - Scam Awareness</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Scam Awareness Quiz</h1>
+        
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="learn.html">Learn</a>
+            <a href="story.html">Share Story</a>
+        </nav>
+
+        <div id="quiz-container">
+            <div class="quiz-question">
+                <h3>Question 1 of 5</h3>
+                <p>You receive an SMS: "Your bank account will be blocked. Click here to update KYC: bit.ly/kyc-update". What do you do?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(1, 'a')">A. Click the link and update immediately</button>
+                    <button onclick="checkAnswer(1, 'b')">B. Ignore it - it's probably a scam</button>
+                    <button onclick="checkAnswer(1, 'c')">C. Forward to friends to warn them</button>
+                    <button onclick="checkAnswer(1, 'd')">D. Call bank using official number to verify</button>
+                </div>
+                <div id="feedback1" class="feedback"></div>
+            </div>
+
+            <div class="quiz-question">
+                <h3>Question 2 of 5</h3>
+                <p>Someone on WhatsApp offers you a job that pays ₹50,000 per week for just 2 hours of work daily. What's your response?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(2, 'a')">A. Accept immediately - it's a great opportunity</button>
+                    <button onclick="checkAnswer(2, 'b')">B. Ask for more details</button>
+                    <button onclick="checkAnswer(2, 'c')">C. Reject - if it's too good to be true, it probably is</button>
+                    <button onclick="checkAnswer(2, 'd')">D. Share with friends who need jobs</button>
+                </div>
+                <div id="feedback2" class="feedback"></div>
+            </div>
+
+            <div class="quiz-question">
+                <h3>Question 3 of 5</h3>
+                <p>A friend's WhatsApp account sends you a message asking for money urgently. What should you do?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(3, 'a')">A. Send money immediately to help</button>
+                    <button onclick="checkAnswer(3, 'b')">B. Call your friend to verify</button>
+                    <button onclick="checkAnswer(3, 'c')">C. Ask for more proof on WhatsApp</button>
+                    <button onclick="checkAnswer(3, 'd')">D. Send half the amount now</button>
+                </div>
+                <div id="feedback3" class="feedback"></div>
+            </div>
+
+            <div class="quiz-question">
+                <h3>Question 4 of 5</h3>
+                <p>What is a safe way to pay someone you don't know?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(4, 'a')">A. Share OTP with them</button>
+                    <button onclick="checkAnswer(4, 'b')">B. Use UPI only after receiving goods</button>
+                    <button onclick="checkAnswer(4, 'c')">C. Never share OTP or use secure payment only when necessary</button>
+                    <button onclick="checkAnswer(4, 'd')">D. Use cash deposit at ATM</button>
+                </div>
+                <div id="feedback4" class="feedback"></div>
+            </div>
+
+            <div class="quiz-question">
+                <h3>Question 5 of 5</h3>
+                <p>You receive a call from "FedEx" saying a package with drugs in your name was caught. They ask for your Aadhaar for verification. What now?</p>
+                <div class="options">
+                    <button onclick="checkAnswer(5, 'a')">A. Share Aadhaar to prove innocence</button>
+                    <button onclick="checkAnswer(5, 'b')">B. Ask them to prove first</button>
+                    <button onclick="checkAnswer(5, 'c')">C. Hang up and report to cybercrime</button>
+                    <button onclick="checkAnswer(5, 'd')">D. Pay fine to resolve quickly</button>
+                </div>
+                <div id="feedback5" class="feedback"></div>
+            </div>
+        </div>
+
+        <div id="score-display" style="text-align: center; margin: 30px 0; font-size: 24px;">
+            Your Score: <span id="score">0</span>/5
+        </div>
+    </div>
+
+    <script>
+        let score = 0;
+        const correctAnswers = {1: 'd', 2: 'c', 3: 'b', 4: 'c', 5: 'c'};
+        const explanations = {
+            1: "✅ Correct! Always verify through official channels. Never click links in suspicious messages.",
+            2: "✅ Correct! If it sounds too good to be true, it probably is a scam.",
+            3: "✅ Correct! Always verify through a different channel before sending money.",
+            4: "✅ Correct! Never share OTP. Use secure payment methods only when necessary.",
+            5: "✅ Correct! This is the famous 'digital arrest' scam. Always hang up and report."
+        };
+
+        function checkAnswer(question, answer) {
+            const feedbackDiv = document.getElementById('feedback' + question);
+            
+            if (answer === correctAnswers[question]) {
+                score++;
+                feedbackDiv.innerHTML = explanations[question];
+                feedbackDiv.style.color = 'green';
+            } else {
+                feedbackDiv.innerHTML = "❌ Not quite. " + explanations[question];
+                feedbackDiv.style.color = 'red';
+            }
+            
+            document.getElementById('score').innerHTML = score;
+            
+            // Disable all buttons for this question after answering
+            const buttons = document.querySelectorAll(`.quiz-question:nth-child(${question}) .options button`);
+            buttons.forEach(button => {
+                button.disabled = true;
+                button.style.opacity = '0.5';
+            });
+        }
+    </script>
+
+    <style>
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        button:disabled {
+            cursor: not-allowed;
+        }
+    </style>
+</body>
+</html>
